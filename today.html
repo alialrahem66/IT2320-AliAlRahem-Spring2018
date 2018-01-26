@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Dates</title>
+</head>
+<body>
+<p> Date (yyyy-mm-dd) format:
+<span id="date1"></span>
+</p>
+
+<p> Date (mm/dd/yyyy) format:
+<span id="date2"></span>
+</p>
+
+<p> Date (MMM DD YYYY) format:
+<span id="date3"></span>
+</p>
+
+<script>
+function generateDates() {
+// create a Date object first using new Date(Date.UTC(yyyy, mm, dd))
+var date = new Date(Date.UTC(2018, 1, 26));
+
+var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+var date1 = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
+var date2 = date.getMonth() + "/" + date.getDate() + "/" + date.getFullYear();
+var date3 = months[date.getMonth() + 1] + " " + date.getDate() + " " + date.getFullYear();
+
+// now, write the content of dates to <p> tag
+document.getElementById("date1").innerHTML = date1;
+document.getElementById("date2").innerHTML = date2;
+document.getElementById("date3").innerHTML = date3;
+}
+
+generateDates();
+</script>
+
+</body>
+<html>
+

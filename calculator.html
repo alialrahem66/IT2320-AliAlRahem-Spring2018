@@ -1,0 +1,55 @@
+<html>
+
+<head>
+
+<script>
+
+function calculate() {
+
+// get the value from x and y from the HTML tags using getElementById(<id>)
+var x = parseFloat(document.getElementById("x").innerHTML);
+var y = parseFloat(document.getElementById("y").innerHTML);
+
+// calculate the result of all the three expressions
+var output1 = (y / 2) * (3 - x);
+var output2 = x % 2;
+var output3 = y / x;
+
+// finally, write the results into output1, output2 and output3, resprectively.
+document.getElementById("output1").innerHTML = output1;
+document.getElementById("output2").innerHTML = output2;
+document.getElementById("output3").innerHTML = output3;
+}
+
+</script>
+
+</head>
+
+<body>
+
+<p>
+x = <span id="x"> 2</span>
+</p>
+<p>
+y = <span id="y"> 9</span>
+</p>
+
+<br><br>
+
+<p>
+(y/2) * (3 -x) = <span id="output1" style="color: red;"> </span>
+</p>
+
+<p>
+x % 2 = <span id="output2" style="color: red;"> </span>
+</p>
+
+<p>
+y / x = <span id="output3" style="color: red;"> </span>
+</p>
+
+<button onclick="calculate()">Calculate</button>
+</body>
+
+<html>
+

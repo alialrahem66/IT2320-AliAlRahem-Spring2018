@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Random Number</title>
+</head>
+<body>
+<p> An array of 100 random numbers between 0-99 are: </p>
+
+<!-- Create a p tag to display all the random numbers -->
+<p id="random_numbers"></p>
+
+<script>
+function generateRandomNumbers() {
+// create an empty array of random numbers
+var random_numbers = [];
+var str = ""; // str contains all the random numbers as a string
+// run a for loop to generate 100 random numbers
+for(let i=1; i<=100; i++) {
+
+// generate a random number between 0-99 using Math.random()
+var randomNumberBetween0and99 = Math.floor(Math.random() * 100);
+random_numbers.push(randomNumberBetween0and99);
+
+// append the random number to the string
+str += randomNumberBetween0and99 + " ";
+}
+
+// now, write the content of random_numbers[] to <p>
+document.getElementById("random_numbers").innerHTML = str;
+}
+
+generateRandomNumbers();
+</script>
+
+</body>
+<html>
+

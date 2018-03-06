@@ -1,8 +1,8 @@
 <html>
 <title>IT2320 - Lab 3</title>
 <!-- 1. Add jQuery using a CDN 
-        https://www.w3schools.com/jquery/jquery_get_started.asp
 -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
     var items = [];
     var costs = [];
@@ -11,23 +11,23 @@
 
     // 3. Replace the window.onload event with jQuery document(ready)
     //    https://www.w3schools.com/jquery/jquery_syntax.asp
-    window.onload = function() {
-        document.getElementById('newItem').focus();
-    }
+    $(document).ready(function() {
+        $('#newItem').focus();
+    });
 
     function openTab(tabName) {
         var i;
         // 4. Change getElementsByClassName to the jQuery $ method
-        var x = document.getElementsByClassName("tab");
+        var x = $(".tab");
         for (i = 0; i < x.length; i++) {
             // 5. Change the following line style.display = "none" to hide()
             //    https://www.w3schools.com/jquery/jquery_hide_show.asp
-           x[i].style.display = "none";  
+            x[i].hide();
         }
 
         // 6. Change the following line style.display = "block" to show()
-        https://www.w3schools.com/jquery/jquery_hide_show.asp
-        document.getElementById(tabName).style.display = "block";  
+        // https://www.w3schools.com/jquery/jquery_hide_show.asp
+     $("#tabName").show();
     }
 
     function addItem() {
@@ -53,12 +53,12 @@
         //    https://www.w3schools.com/jquery/jquery_dom_get.asp
         //    https://www.w3schools.com/jquery/jquery_dom_set.asp
         //    Example: $('#summary').html(itemsSummary);
-        document.getElementById('summary').innerHTML = itemsSummary;
-        document.getElementById('currentItems').innerHTML = itemsDisplay;
+        $('#summary').html(itemsSummary);
+        $('#currentItems').html(itemsDisplay);
         // 8. Change all .value properties to jQuery .val() get and set
-        document.getElementById('newItem').value = '';
-        document.getElementById('newAmount').value = '';
-        document.getElementById('newItem').focus();
+        $('#newItem').val('');
+        $('#newAmount').val('');
+        $('#newItem').focus();
     }
 
     </script>

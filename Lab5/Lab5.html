@@ -1,0 +1,31 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+$("p").eq(1).css("background-color", "yellow");
+// using eq we can select by specifying the index number
+$("p").eq(1).parent().children("h1").css("color", "red");
+// here we selecting the paragram at index and getting the parent for that which is body and getting the childs of the body of type h1
+$("#favoriteForm").submit(function(){
+if($("#favoriteFood").val()=='');{
+$("#favoriteFood").next().text( "this button is disabled" );
+return false;
+}
+});
+});
+</script>
+</head>
+<body>
+<h1>Lab 5</h1>
+<p>My name is Al.</p>
+<p>Al Dente.</p>
+<p>I live in the land of Pasta.</p>
+<p>My best friend is Cheese.</p>
+<form id="favoriteForm" name="favoriteForm">
+Enter your favorite food <input id="favoriteFood" name="favoriteFood" type="text" id="favorite"> <span></span>
+<br><br><input type="submit" value="Submit">
+</form>
+</body>
+</html>
+

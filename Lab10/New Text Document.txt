@@ -1,0 +1,20 @@
+Simple syntax, which results in less "markup" overhead compared to XML.
+    Easy to use with JavaScript as the markup is a subset of JS object literal notation and has the same basic data types as JavaScript.
+    JSON Schema for description and datatype and structure validation
+    JsonPath for extracting information in deeply nested structures
+
+Con:
+    Simple syntax, only a handful of different data types are supported.
+
+XML
+Pro:
+    Generalized markup; it is possible to create "dialects" for any kind of purpose
+    XML Schema for datatype, structure validation. Makes it also possible to create new datatypes
+    XSLT for transformation into different output formats
+    XPath/XQuery for extracting information in deeply nested structures
+    built in support for namespaces
+Con:
+    Relatively wordy compared to JSON results in more data for the same amount of information .
+
+
+

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<memberships>
+   <membership>
+    <level>1</level>
+       <type>Seasonal</type>
+    <cost>35.00</cost>
+   </membership>
+   <membership>
+    <level>2</level>
+    <type>Individual</type>
+    <cost>50.00</cost>
+   </membership>
+<membership>
+    <level>3</level>
+    <type>Family</type>
+    <cost>65.00</cost>
+   </membership>
+   <membership>
+    <level>4</level>
+    <type>Contributing</type>
+    <cost>70.00</cost>
+   </membership>
+</memberships>

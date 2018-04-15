@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>First Form</title>
+</head>
+<body>
+    <h1>Membership Levels</h1>
+    <span id="membershipLevels">
+        <button type="button" onclick="loadXML()">Click Me to Load Memberships using AJAX and XML</button>
+    </span>
+    <h1>Current Members</h1>
+    <span id="members">
+        <button type="button" onclick="loadJSON()">Click Me to Load Members using AJAX and JSON</button>
+    </span>
+
+    <script>
+            function loadXML() {
+                console.log("Hi there");
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        loadXMLFile(this);
+                    }
+                };
+                xhttp.open("GET", "./memberships.xml", true);
+                xhttp.send();
+            }
+            function loadXMLFile(xml) {
+                var i;
+                var xmlDoc = xml.responseXML;
+                var table = "<table border='1'><tr><th>Level</th><th>Type</th><th>Cost</th></tr>";
+                var x = xmlDoc.getElementsByTagName("membership");
+                for (i = 0; i < x.length; i++) {
+                    table += "<tr><td>" +
+                        x[i].getElementsByTagName("level")[0].childNodes[0].nodeValue +
+                        "</td><td>" +
+                        x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue +
+                        "</td><td>" +
+                        x[i].getElementsByTagName("cost")[0].childNodes[0].nodeValue +
+                        "</td></tr>";
+                }
+                table += "</table>";
+                document.getElementById("membershipLevels").innerHTML = table;
+            }
+            function loadJSON() {
+                console.log("Hi there");
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        loadJSONFile(this);
+                    }
+                };
+                xhttp.open("GET", "./members.json", true);
+                xhttp.send();
+            }
+            function loadJSONFile(json) {
+                var i;
+                var jsonDoc = JSON.parse(json.response);
+                console.log(jsonDoc);
+                var table = "<table border='1'><thead><tr><th>Name</th><th>Address</th><th>City</th><th>ZIp</th><th>Phone</th><th>Level</th><th>Cost</th></tr></thead>";
+                var x = jsonDoc["Person"];
+                for (i = 0; i < x.length; i++) {
+                    console.log(x);
+                    table += "<tbody><tr><td>" +
+                        x[i]["name"] + "</td><td>" +
+                        x[i]["address"] + "</td><td>" +
+                        x[i]["city"] + "</td><td>" +
+                        x[i]["zip"] + "</td><td>" +
+                        x[i]["phone"] + "</td><td>" +
+                        x[i]["level"] + "</td><td>" +
+                        x[i]["cost"] + "</td></tr>";
+                }
+                table += "</tbody></table>";
+                document.getElementById("members").innerHTML = table;
+            }
+    </script>
+
+</body>
+</html>
